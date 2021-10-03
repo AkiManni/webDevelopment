@@ -1,0 +1,31 @@
+.dialogi{
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-Index: 999;
+    background: #a4d2db;
+    padding: 10px 20px 40px;
+    border: 8px;
+    display: flex;
+    flex-Direction: column;
+    border: 1px solid black;
+}
+
+.enterUser {
+    margin-left:10px;
+    float:right;
+    margin-right:50px;
+}
+
+.userText{
+    padding-bottom: 10px;
+}
+
+.centerDiv{
+    margin-left:20px;
+    padding-top:20px;
+}

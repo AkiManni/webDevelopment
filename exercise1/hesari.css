@@ -1,0 +1,85 @@
+body{
+    background-color: #e9eaee;
+}
+
+#topBar{
+    background-color: #08194d;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.invert_effect {
+    filter: invert(100%);
+}
+
+#topBarButtonsTable{
+    color:white;
+    border-spacing: 15px;
+    font-size:20px;
+
+}
+#secondTopBarButtonsTable{
+    color:white;
+    border-spacing: 15px;
+    font-size:20px;
+}
+
+#newsHeadlineTable{
+    margin-left:20px;
+    text-indent:30px;
+    color:white;
+    font-size:30px;
+    width: 95%;
+    position: middle;
+    margin-bottom:20px;
+}
+
+#innerContentTable{
+    width: 95%;
+    position: middle;
+}
+
+#contentsDIV{
+    width: 100%;
+    position: middle;
+}
+
+#newsHeadlineTable tr{
+    background-color: #4d96a5;
+}
+#newsHeadlineTable tr:nth-child(3){
+    background-color: #3fb9e2;
+}
+
+#rightContentWithinContainerTable{
+    margin-left:50px;
+}
+
+#rightContentWithinContainerTable{
+    width:100px;
+    border-spacing:10px;
+    padding-left:20px;
+    background-color: #ffffff;
+}
+
+#pollContentTable{
+    font-size:20px;
+    border-spacing:20px;
+}
+
+.mostReadedNewsNumberTab{
+    vertical-align:text-top;
+    font-size: 18px;
+    color:gray; 
+}
+
+#leftContentWithinContainerTable{
+    background-color: #ffffff;
+    padding-left:10px;
+    padding-right:10px;
+    
+}

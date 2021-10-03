@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Helsinkin Sanomat</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="hesari.css">
+    <style>
+
+        #main {
+            width:92%;
+            margin-left:4%;
+            margin-right:4%;
+            margin-top: 20px;
+        }
+
+        #main div {
+          -ms-flex: 1;
+          flex: 1;
+        }
+
+        .item
+        {
+          background-color: white;
+          padding:20px;
+          margin-bottom: 5px;
+          width:220px;
+          height:70px;
+          border-bottom:1px solid;
+        }
+    
+        .hslimg{
+        filter: invert(100%);
+        float:left;
+        width:384px;
+        height:34px;
+        padding-left:100px;
+        }
+
+        .hslimgTwo{
+          float:left;
+          padding-left:20px;
+          width:800px;
+          
+        }
+    
+        .topMenu{
+          background-color: #08194d;
+          width: 100%;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          border-spacing: 15px;
+          font-size:20px;
+          color:white;
+          vertical-align: middle;
+          font-family: 'PT Sans', sans-serif;
+        }
+
+        .topMenuTable{
+            border-collapse:collapse;
+            background-color: #08194d;
+            width: 100%;
+            
+        }
+
+        .topMenuTable td:nth-child(1){
+          padding-left:180px;
+          width:auto;
+          
+        }
+
+        .topMenuTable td:nth-child(n+1),td:not(:nth-child(6)) {
+          width:auto;
+          padding-left:10px;
+        }
+
+        .topMenuTable td:nth-child(6){
+          padding-left:100px;
+          width: 20px;
+        }
+        
+        
+        .topMenuTable td:last-child{
+          padding-right:100px;
+        }
+
+        .divBox{
+          width: 100%;
+          height: 700px;
+          border: 1px black solid;
+          padding-left: 120px;
+        }
+
+        .vendorBuy {
+        background-color: white;
+        border-radius: 25px;
+        height: 50px;
+        width: 120px;
+        color: #08194d;
+        text-align: center;
+        line-height: 46px;
+        font-size:18px;
+        }
+
+        #newsHeadlineTable{
+            max-width:90%;
+            height:200px;
+            line-height: 60px;
+            font-size:25px;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .newsContentDiv{
+            
+            margin-left: 4%;
+            
+            margin-top: 20px;
+
+        }
+        
+        .contentDiv{
+            /* width:92%;
+            margin-left:4%;
+            margin-right:4%;
+            margin-top: 20px; */
+            /* padding-left:30px; */
+        }
+        .firstContentDiv{
+            border-top:1px solid black;
+            width:60%;
+            margin-right:2%;
+            padding-top:10px;
+            
+            
+            float: left;
+            background:white;
+        }
+
+        .secondContentDiv{
+          width:28%;
+          padding-top:15px;
+            /* margin-right: 4%; */
+            background:white;
+            float:left;
+        }
+
+        .firstContentTables{
+          width:100%;
+        }
+
+
+        #newsHeadlineTable tr{
+        background-color: #4e96a4;
+        
+        }
+        #newsHeadlineTable tr:nth-child(3){
+        background-color: #3fb9e2;
+        
+        }
+
+        .headlineText{
+          font-size:30px;
+          padding-left:20px;
+          font-family:Arial, Helvetica, sans-serif;
+
+        }
+
+
+        .pollContentTable{
+            font-size:20px;
+            border-spacing:20px;
+        }
+        .pollContentNumbersTable{
+            font-size:20px;
+            border-bottom:1px solid black;
+            
+            
+        }
+        .titleNames{
+            font-size:20px;
+            color:gray;
+        }
+
+        .mostReadedTable{
+          width: 220px;
+        }
+
+        #pollTableId{
+          border-collapse: collapse;
+          line-height:45px;
+          margin-left:20px;
+          margin-bottom:55px;
+        }
+
+        
+    
+      </style>
+</head>
+
+<body>
+    <div id="application"></div>
+
+    <script type="text/babel">
+
+    
+    var newsAndClicks = [
+      {clickQty: 4637, newsAbout: 'Tämä on 1. olio taulukossa.'},
+      { clickQty: 46366, newsAbout: 'Tämä on 2. olio taulukossa.' },
+      { clickQty: 2556, newsAbout: 'Tämä on 3. olio taulukossa.' },
+      { clickQty: 244, newsAbout: 'Tämä on 4. olio taulukossa.' },
+      { clickQty: 7587, newsAbout: 'Tämä on 5. olio taulukossa.' },
+      { clickQty: 24153, newsAbout: 'Tämä on 6. olio taulukossa.'},
+      { clickQty: 35626, newsAbout: 'Tämä on 7. olio taulukossa.' },
+      { clickQty: 66664, newsAbout: 'Tämä on 8. olio taulukossa.' },
+      { clickQty: 29999, newsAbout: 'Tämä on 9. olio taulukossa.' },
+      { clickQty: 80684, newsAbout: 'Tämä on 10. olio taulukossa.' },
+      { clickQty: 12557, newsAbout: 'Tämä on 11. olio taulukossa.' },
+      { clickQty: 56756, newsAbout: 'Tämä on 12. olio taulukossa.' },
+      { clickQty: 53673, newsAbout: 'Tämä on 13. olio taulukossa.' },
+      { clickQty: 4664, newsAbout: 'Tämä on 14. olio taulukossa.' },
+      { clickQty: 775, newsAbout: 'Tämä on 15. olio taulukossa.' },
+      { clickQty: 7588, newsAbout: 'Tämä on 16. olio taulukossa.' }
+    ];
+
+    const appTwo = 
+    React.createElement('table', {className: 'topMenuTable'},
+          React.createElement('td',{ className:'topMenu'}, React.createElement('img',{ className: 'hslimg', src:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Helsingin_Sanomat_wordmark.svg/1280px-Helsingin_Sanomat_wordmark.svg.png'} ,null)
+        ),
+          React.createElement('td', { className:'topMenu'}, 'Etusivu'),
+          React.createElement('td', { className:'topMenu'}, 'Uutiset'),
+          React.createElement('td', { className:'topMenu'}, 'Lehdet'),
+          React.createElement('td', { className:'topMenu'}, 'Asiakaspalvelu'),
+          
+          React.createElement('td',{className:'topMenu'},React.createElement('button',{className:'vendorBuy'},"Tilaa")),
+          React.createElement('td',{className:'topMenu'},"Kirjaudu"),
+          React.createElement('td',{className:'topMenu'},"Valikko")
+        );
+
+    const contentApp = 
+    React.createElement('div',{id:"main"},
+    React.createElement('table', {id: 'newsHeadlineTable'}, 
+        React.createElement('tr',null,"WHAT WHAT WHAT: Monica Petterson had flat tire."),
+        React.createElement('tr',null,"THIS JUST IN: Oh no. - How could you Matt Damon?"),
+        React.createElement('tr',null,"HALLELUJAH: Christperson Chris Iisac did it again.")
+        ),
+        React.createElement('div',{className:'newsContentDiv'},
+                    React.createElement('div',{className:'firstContentDiv'},
+
+                    React.createElement('table',{className:"firstContentTables"},
+                      React.createElement('header',{className:"headlineText"},"Koronavirus"),
+                      React.createElement('tr',null, 
+                      React.createElement('img',{className:'hslimgTwo', src:'https://images.cdn.yle.fi/image/upload/f_auto,fl_progressive/q_88/w_3200/w_3200,h_1800,c_crop,x_0,y_165/w_1200/v1530259014/39-4952575b336c6527d1c.jpg'}, null),
+                       ),
+                      React.createElement('ul',{className:"headlineText"}, "HS Seuraa"),
+                      React.createElement('ul',{className:"headlineText"}, "Päivittyvä seuranta | STM: Parasetamolia tai deksametasonia sisältävien lääkkeiden myyntiä rajoitetaan" ),
+                      React.createElement('table',{id: "pollTableId", className:"pollContentTable"}, 
+                            React.createElement('tr',{className:"headlineText"}, "Koronaviruksen vaikutukset Suomessa"),
+                            React.createElement('tr',{className:"titleNames"}, 
+                                React.createElement('table',{className:"pollContentTable"}, 
+                                React.createElement('tr',{className:"titleNames"},
+                                    React.createElement('td',null, "Tartunnat yhteensä: "),
+                                    React.createElement('td',null, "Tuoreimmat 14 päivää: "),
+                                    React.createElement('td',null, "Edeltävät 14 päivää: "),
+                                    ),
+                                React.createElement('tr',{className:"pollContentNumbersTable"}, 
+                                    React.createElement('td',null, "7776"),
+                                    React.createElement('td',null, "293"),
+                                    React.createElement('td',null, "132"),
+                                    ),
+                                    
+                                React.createElement('tr',{className:"titleNames"}, 
+                                    React.createElement('td',null,"Kuolleet:" ),
+                                    React.createElement('td',null, ""),
+                                    React.createElement('td',null, ""),
+                                    ),
+                                React.createElement('tr',{className:"pollContentNumbersTable"}, 
+                                    React.createElement('td',null, "334"),
+                                    React.createElement('td',null, "5"),
+                                    React.createElement('td',null, "1"),),
+                                  
+                                
+                                ),
+                            ),
+                            ),
+                      ),
+                      
+                     ),
+                    React.createElement('div',{className:'secondContentDiv'},
+                          React.createElement('table',null,
+                              React.createElement('header',{className:"headlineText"},"Luetuimmat artikkelit suuruusjärjestyksessä - oletetaan, että ne päivittyvät databasesta löytyvän click-määrän mukaan:"),
+                              React.createElement('tr',null,
+                              React.createElement('hr',{padding:"20px;"},null) 
+                              ),
+                              React.createElement('tr',{className:'divBox'},
+                              React.createElement('ol',{className:'mostReadedTable'},newsAndClicks
+                                .sort((a, b) => b.clickQty - a.clickQty)
+                                .slice(0,7)
+                                .map(({index, newsAbout,clickQty}) => 
+                                React.createElement('li', {className: 'item'}, newsAbout +" Klikkauksia yht: " + clickQty)))
+          )
+        ))
+        )
+
+
+    );
+    
+
+
+    //const appNews = 
+    
+    
+    
+
+    const applications = [
+     /* app, */appTwo, contentApp//, appNews 
+    ];
+
+    ReactDOM.render(applications, document.getElementById('application'));
+    //ReactDOM.render(app, document.getElementById('application'));
+  </script>
+
+
+
+
+
+ 
+    </script>
+</body>
+</html>

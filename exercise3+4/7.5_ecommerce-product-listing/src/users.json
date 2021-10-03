@@ -1,0 +1,31 @@
+{
+    "users": [
+  
+      { 
+        "id": 1, 
+        "firstname":"Man",
+        "surname":"Manly",
+        "adress":"Adress 1",
+        "username":"man",
+        "password":"1234"
+        
+ 
+      },
+
+      { 
+        "id": 2, 
+        "firstname":"Woman",
+        "surname":"Womanly",
+        "adress":"Adress 2",
+        "username":"woman",
+        "password":"1234"
+        
+      }
+      
+    ]
+  }
+  
+  
+  
+  
+  
