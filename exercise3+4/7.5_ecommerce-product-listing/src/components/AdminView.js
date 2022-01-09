@@ -8,14 +8,17 @@ export default function AdminView(props) {
   const [newItemName, setNewItemName] = useState("");
   const [newItemManufucturer, setNewItemManufucturer] = useState("");
   const [newItemPrice, setNewItemPrice] = useState("");
-  const [newItemQuantity, setNewItemQty] = useState("");
+  const [newImage, setNewImage] = useState("");
+  const [newType, setNewType] = useState("");
+  const [newDescription, setNewDescription] = useState("");
 
   const addNewItem = () => {
-    props.addNewItem(newItemName, newItemManufucturer, newItemPrice, newItemQuantity);
+    props.addNewItem(newItemName, newItemManufucturer, newItemPrice, newImage, newType, newDescription);
   }
 
   const updateItem = () => {
-    props.updateItem(newId, newItemName, newItemManufucturer, newItemPrice, newItemQuantity);
+    if(newId != "" || newItemName != "" || newItemManufucturer != "" || newDescription != "" || newImage != "" || newItemPrice != "" || newType != "")
+    props.updateItem(newId, newItemName, newItemManufucturer, newImage, newType, newItemPrice);
   }
 
   const onDeleteItemClick = (itemId) => {
@@ -23,12 +26,16 @@ export default function AdminView(props) {
     props.deleteItem(itemId);
   }
 
+  const deleteInvoice = (itemId) => {
+    props.deleteInvoice(itemId);
+  }
+
   return (
     <div className={ styles.divContainer }>
       <div>
           <h1>Add new item</h1>
           <div>
-            id, jos haluat päivittää tietoja: <input type="text" onChange={ (event) => setNewId(event.target.value)} />
+            Lisää id, jos haluat päivittää tuotteen tietoja: <input style={{width: 40}} type="text" onChange={ (event) => setNewId(event.target.value)} />
           </div>
           <div>
             Name <input type="text" onChange={ (event) => setNewItemName(event.target.value) } />
@@ -37,10 +44,18 @@ export default function AdminView(props) {
             Manufucturer <input type="text" onChange={ (event) => setNewItemManufucturer(event.target.value) } />
           </div>
           <div>
-            Price <input type="text" onChange={ (event) => setNewItemPrice(event.target.value) } />
+            Type <input type="text" onChange={ (event) => setNewType(event.target.value) } />
           </div>
           <div>
-            Quantity <input type="text" onChange={ (event) => setNewItemQty(event.target.value) } />
+            Description <input type="text" onChange={ (event) => setNewDescription(event.target.value) } />
+          </div>
+          <div>
+            Image <input type="text" onChange={ (event) => setNewImage(event.target.value) } />
+          </div>
+
+          <img style={{width: 200, height: 200, borderRadius: 200/ 2}}  src={newImage}  alt="<Preview>"/>
+          <div>
+            Price <input type="text" onChange={ (event) => setNewItemPrice(event.target.value) } />
           </div>
           <button onClick={ addNewItem }>Add Item</button><button onClick={ updateItem }>Päivitä</button>
 
@@ -49,23 +64,28 @@ export default function AdminView(props) {
         
         <h1>List of items, users and orders:</h1>
         <div className={ styles.centerContent }>
-          <tr><td></td><td>id:</td><td>Name</td><td>Manufucturer</td><td>Price</td><td>qty</td>
+          <tr><td></td><td>id:</td><td>Name</td><td>Manufucturer</td><td>Price</td>
           </tr>
         { props.items.map((item, index) =>
           <tr key={index} >
-            <td><button onClick={() => onDeleteItemClick(item.id)}>X</button></td><td>{item.id}</td><td>{item.name}</td> <td>{item.manufucturer}</td> <td>{item.price}</td> <td>{item.qty}</td>
+            <td><button onClick={() => onDeleteItemClick(item.id)}>X</button></td>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+            <td>{item.manufucturer}</td>
+            <td>{item.price}</td>
           </tr>)}
         </div>
 
         <div className={ styles.centerContent2 }>
-          <tr><td>id:</td><td>Firstname</td><td>Surname</td><td>Adress</td><td>Username</td><td>Password</td></tr>  
+          <tr><td>id:</td><td>Firstname</td><td>Surname</td><td>Address</td><td>Postnumber</td><td>Username</td><td>Password</td></tr>  
             
           { props.users.map((user,index) => 
             <tr key={index} >
               <td>{user.id}</td>
               <td>{user.firstname}</td>
               <td>{user.surname}</td>
-              <td>{user.adress}</td>
+              <td>{user.address}</td>
+              <td>{user.postNumber}</td>
               <td>{user.username}</td>
               <td>{user.password}</td>
             </tr>)}
@@ -73,16 +93,18 @@ export default function AdminView(props) {
 
         <div className={ styles.centerContent3 }>
 
-          <tr><td>id:</td><td>Buyier</td><td>manufucturer</td><td>name</td><td>price</td><td>qty</td></tr>
+          <tr><td></td><td>id:</td><td>Order Time:</td><td>customerId</td><td>Customer Name</td><td>Address</td><td>Postnumber</td><td>Total Payment</td></tr>
           { props.purchases.map((purchase,index) =>
           <tr key={index} >
+            <td><button onClick={() => deleteInvoice(purchase.id)}>X</button></td>
             <td>{purchase.id}</td>
-            <td>{purchase.buyer}</td>
-            <td>{purchase.manufucturer}</td>
-            <td>{purchase.name}</td>
-            <td>{purchase.price}</td>
-            <td>{purchase.qty}</td>
-
+            <td>{purchase.orderPlacedAt}</td>
+            <td>{purchase.customerId}</td>
+            <td>{purchase.customerName}</td>
+            <td>{purchase.address}</td>
+            <td>{purchase.postNumber}</td>
+            <td>{purchase.totalCost}€</td>
+            {/* <td>{purchase.productsOrdered}</td> */}
           </tr>)}
         </div>
         

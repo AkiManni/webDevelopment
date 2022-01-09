@@ -1,0 +1,25 @@
+
+
+.centerDiv{
+    margin-left:20px;
+    padding-top:20px;
+}
+
+.OrderHistoryListItems{
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+.hrList{
+    height:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    margin-bottom:0 !important;
+    margin-top:10px !important;
+    }
+
+.productsToBeOrderedText{
+    text-align: center !important;
+    padding-top:10px;
+    }

@@ -3,19 +3,17 @@
     
 }
 
-td:not(:first-child){
-    border:1px solid black;
-}
-
 .centerContent{
     text-align:center;
     float:left;
     margin-right:30px;
 }
+
 .centerContent2{
     text-align:center;
     float:left;
     margin-right:30px;
+    margin-bottom: 40px;
     
 }
 .centerContent3{
@@ -23,3 +21,15 @@ td:not(:first-child){
     
     
 }
+
+div.centerContent td:nth-child(1){
+        border:none;
+}
+
+td{
+    border:1px solid black;
+}
+
+/* td:not(:first-child){
+    border:1px solid black;
+} */

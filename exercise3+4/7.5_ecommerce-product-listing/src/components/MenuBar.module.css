@@ -1,0 +1,23 @@
+.menuBar{
+    background: #a4d2db;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:30px;
+}
+
+input{
+    width:300px;
+}
+
+.validationEntry{
+    width: 100px;
+}
+
+.button1{
+    margin-right: 10px;
+    margin-left: 300px;
+}
+.button2{
+    margin-right: 10px;
+    margin-left: 10px;
+}

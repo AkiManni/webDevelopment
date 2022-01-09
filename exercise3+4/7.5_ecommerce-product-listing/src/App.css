@@ -15,9 +15,46 @@ input{
 
 .button1{
     margin-right: 10px;
-    margin-left: 500px;
+    margin-left: 300px;
 }
 .button2{
     margin-right: 10px;
     margin-left: 10px;
 }
+
+.container{
+    display:flex;
+    height:800px;
+}
+
+.contentContainer{
+    float:left;
+    height:100%;
+    width: 70%;
+    background: #cbe4e9;
+    -ms-overflow-style: none;
+    scrollbar-width:none;
+    overflow-y: scroll;
+    border:1px solid #90aaaf;
+}
+
+.shoppingCart{
+    float: right;
+    width: 30%;
+    height: 100%;
+    background: #bcd3d8;
+    border:1px solid #90aaaf;
+}
+
+
+.searchfield{
+    width:200px;
+
+}
+
+.productsToBeOrderedText{
+    text-align: center !important;
+    padding-top:10px;
+  }
+
+

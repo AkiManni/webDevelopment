@@ -1,0 +1,33 @@
+{
+    "orders": [
+  
+      { 
+        "id": 1,
+        "customerId": 1,
+        "buyer":"Man Manly",
+        "address":"Address 1",
+        "postNumber":21034,
+        "products": [
+
+            {
+            "itemId":1,
+            "manufucturer":"Apple", 
+            "name":"iPhone 25", 
+            "price": 499, 
+            "qty":1
+            },
+
+            {
+            "itemId":9,
+            "manufucturer":"Audi",
+            "name":"A3",
+            "price":22999,
+            "qty":1 
+            }
+            
+        ]
+        
+      }
+
+    ]
+}

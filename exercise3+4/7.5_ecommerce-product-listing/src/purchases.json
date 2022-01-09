@@ -1,14 +1,6 @@
 {
     "purchases": [
   
-      { 
-        "id": 1,
-        "buyer":"Testi Ostaja",
-        "manufucturer":"Apple", 
-        "name":"iPhone 25", 
-        "price": 499, 
-        "qty":1
-      }
 
     ]
 }

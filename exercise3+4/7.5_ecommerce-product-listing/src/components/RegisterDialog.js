@@ -6,24 +6,33 @@ export default function Dialog(props) {
 
     const [newFirstname, setNewFirstName] = useState("");
     const [newSurname, setNewSurname] = useState("");
-    const [newAdress, setNewAdress] = useState("");
+    const [newAddress, setNewAddress] = useState("");
+    const [newPostNumber, setNewPostNumber] = useState("");
     const [newUsername, setNewUsername] = useState("");
     const [newPassword, setNewPassword] = useState("");
     
     const addNewUser = () => {
-        props.addNewUser(newFirstname, newSurname, newAdress, newUsername, newPassword);
-        props.disableRegister();
+        if(newFirstname != "" || newSurname != "" || newAddress != "" || newPostNumber != "" || newUsername != "" || newPassword != ""){
+            props.addNewUser(newFirstname, newSurname, newAddress, newPostNumber, newUsername, newPassword);
+            props.disableRegister();
+        }
+        else{
+            alert("Please fill every part of the register dialog!")
+        }
     }
 
         let dialog = (
             <div className={ styles.dialogi }>
             
             <div className={ styles.userText }>Syötä uuden käyttäjän tiedot: </div>
-            <div>Etunimi: <input type="text" className={ styles.enterUser } onChange={ (event) => setNewFirstName(event.target.value) }></input></div>
+            <div>Etunimi: <input type="text" className={ styles.enterUser } 
+                onChange={ (event) => setNewFirstName(event.target.value) }></input></div>
             <div>Sukunimi: <input type="text" className={ styles.enterUser }
                 onChange={ (event) => setNewSurname(event.target.value) }></input></div>
             <div>Osoite: <input type="text" className={ styles.enterUser }
-                onChange={ (event) => setNewAdress(event.target.value) }></input></div>
+                onChange={ (event) => setNewAddress(event.target.value) }></input></div>
+            <div>Postinumero: <input type="text" className={styles.enterUser}
+                onChange={ (event) => setNewPostNumber(event.target.value)}></input></div>
             <div>Käyttäjänimi: <input type="text" className={ styles.enterUser }
                 onChange={ (event) => setNewUsername(event.target.value) }></input></div>
             <div>Salasana: <input type="text" className={ styles.enterUser }
